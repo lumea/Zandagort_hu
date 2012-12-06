@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>Zandagort online stratégiai játék</title>
+
+		<link rel="stylesheet" type="text/css" href="css/reset-min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="js/jquery.nicescroll.dev.js"></script>
+		<script type="text/javascript" src="js/jscode.js"></script>
+	</head>
+	<body>
+		<div id="terkep">
+			<div id="terkep_eger_reteg">
+				<ul id="terkep_hexak"></ul>
+				<ul id="terkep_bolygok"></ul>
+				<ul id="terkep_flottak"></ul>
+			</div>
+		</div>
+		<div id="felso_menu" class="menu">
+			<div class="menu_section" style="width: auto; float: left; height: 21px; margin-top: 5px; padding: 6px 5px 0px">
+				népesség: 1,1m
+			</div>
+			<div style="width: auto; float: left; margin-right: 5px">
+				<button>BIRODALOM</button>
+				<button>SAJÁT SZÖVI</button>
+				<button>SZÖVETSÉGEK</button>
+				...
+				<button>HELP</button>
+			</div>
+			<div class="menu_section" style="width: auto; float: right; margin-right: 170px; height: 21px; margin-top: 5px; padding: 6px 5px 0px">
+				általános kereső mező
+			</div>
+			<div id="zanda_logo"></div>
+		</div>
+		<div id="bal_menu" class="menu">
+			<div id="esemenyek" class="menu_section">események</div>
+			<div id="bolygo_lista" class="menu_section"></div>
+			<div id="minichat" class="menu_section">chat</div>
+		</div>
+		<div id="jobb_menu" class="menu">
+			<div id="flotta_lista" class="menu_section">
+				<ul>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+					<li>Flotta</li>
+				</ul>
+			</div>
+			<div id="aktiv_flotta" class="menu_section"></div>
+			<div id="kivalasztott_flotta" class="menu_section"></div>
+			<div id="miniterkep">
+				<div id="miniterkep_koordi" class="menu_section"></div>
+				<div id="miniterkep_belso" class="menu_section">
+					<div id="miniterkep_jelolo"></div>
+					<div id="miniterkep_jelolo_x"></div>
+					<div id="miniterkep_jelolo_y"></div>
+				</div>
+			</div>
+		</div>
+		<div id="bolygo_profil" class="ablak">
+			<div class="ablak_fejlec">
+				<span class="caption">Toscana</span>
+				<span class="ablak_fejlec_menu">rename, tutor, ...</span>
+				<span class="close_icon"></span>
+			</div>
+			<div class="ablak_tartalom">
+				<div id="bolygo_profil_felso_resz">
+					<div id="bolygo_alap_adatok">
+						<table class="datalist">
+							<tr><th>Termelés</th><td id="bolygo_adat_kov_termeles"></td></tr>
+							<tr><th>Morál</th><td id="bolygo_adat_moral"></td></tr>
+							<tr><th>Védelmi bónusz</th><td id="bolygo_adat_vedelmi_bonusz"></td></tr>
+							<tr><th>Foglalható/Fosztható</th><td id="bolygo_adat_foglalhato"></td></tr>
+							<tr><th>Szabotálható</th><td id="bolygo_adat_szabotalhato"></td></tr>
+						</table>
+					</div>
+					<div id="bolygo_kep" class="menu_section">2M / B / van<br />beépítettség?<br />éjszaka/nappal?</div>
+					<div id="bolygo_gala_kis" class="menu_section">bolygó környéke</div>
+					<div id="bolygo_gala_nagy" class="menu_section">galaktikus<br />pozíció</div>
+				</div>
+				<ul class="tab_list" id="tabs_for_bolygo_profil_tabok">
+					<li id="tab_for_bolygo_profil_okoszfera">Ökoszféra</li>
+					<li id="tab_for_bolygo_profil_gazdasag" class="active_tab">Gazdaság</li>
+					<li id="tab_for_bolygo_profil_kereskedelem">Kereskedelem</li>
+					<li id="tab_for_bolygo_profil_szallitas">Szállítás</li>
+					<li id="tab_for_bolygo_profil_haboru">Háború</li>
+					<li id="tab_for_bolygo_profil_ugynokok">Ügynökök</li>
+				</ul>
+				<div id="bolygo_profil_tabok">
+					<div id="bolygo_profil_gazdasag" class="tab_content active_tab_content">
+						<div style="float:left; width: 330px">
+							<table id="bolygo_gyarak_tabla">
+								<tr class="headerrow">
+									<th></th>
+									<th>név</th>
+									<th>aktív<br />(üzemel)</th>
+									<th>inaktív</th>
+								</tr>
+								<tr><th colspan="4">Települések</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_29"><td><img src="img/gyarikonok/falu_index.jpg" /></td><td class="gyar_nev">Falu</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_30"><td><img src="img/gyarikonok/varos_index.jpg" /></td><td class="gyar_nev">Város</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><th colspan="4">Élelmiszeripar</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_14"><td><img src="img/gyarikonok/husuzem_index.jpg" /></td><td>Húsüzem</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_15"><td><img src="img/gyarikonok/vegagyar_index.jpg" /></td><td>Vegagyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_16"><td><img src="img/gyarikonok/kenyergyar_index.jpg" /></td><td>Kenyérgyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_17"><td><img src="img/gyarikonok/szeszfozde_index.jpg" /></td><td>Szeszfőzde</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><th colspan="4">Energia</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_1"><td><img src="img/gyarikonok/naperomu_index.jpg" /></td><td>Naperőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_2"><td><img src="img/gyarikonok/sps_index.jpg" /></td><td>SPS</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_4"><td><img src="img/gyarikonok/szelfarm_index.jpg" /></td><td>Szélfarm</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_5"><td><img src="img/gyarikonok/vizeromu_index.jpg" /></td><td>Vízi erőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_6"><td><img src="img/gyarikonok/hullamfarm_index.jpg" /></td><td>Hullámfarm</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_7"><td><img src="img/gyarikonok/arapalyeromu_index.jpg" /></td><td>Árapályerőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_8"><td><img src="img/gyarikonok/ozmoziseromu_index.jpg" /></td><td>Ozmózis erőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_9"><td><img src="img/gyarikonok/geotermikuseromu_index.jpg" /></td><td>Geotermikus erőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_10"><td><img src="img/gyarikonok/hdr_index.jpg" /></td><td>HDR erőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_11"><td><img src="img/gyarikonok/bioetanol_index.jpg" /></td><td>Bioetanol erőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_12"><td><img src="img/gyarikonok/atomeromu_index.jpg" /></td><td>Atomerőmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_13"><td><img src="img/gyarikonok/fuziosreaktor_index.jpg" /></td><td>Fúziós reaktor</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><th colspan="4">Kitermelés</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_18"><td><img src="img/gyarikonok/fureszmalom_index.jpg" /></td><td>Fűrészmalom</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_19"><td><img src="img/gyarikonok/kobanya_index.jpg" /></td><td>Kőbánya</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_20"><td><img src="img/gyarikonok/homokbanya_index.jpg" /></td><td>Homokbánya</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_21"><td><img src="img/gyarikonok/titanmu_index.jpg" /></td><td>Titánmű</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_22"><td><img src="img/gyarikonok/uranuzem_index.jpg" /></td><td>Urándúsító</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><th colspan="4">Feldolgozás</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_23"><td><img src="img/gyarikonok/uveggyar_index.jpg" /></td><td>Üveggyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_24"><td><img src="img/gyarikonok/felvezogyar_index.jpg" /></td><td>Félvezetőgyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_25"><td><img src="img/gyarikonok/szenegeto_index.jpg" /></td><td>Szénégető</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_26"><td><img src="img/gyarikonok/olajgyar_index.jpg" /></td><td>Olajgyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_27"><td><img src="img/gyarikonok/muanyaggyar_index.jpg" /></td><td>Műanyaggyár</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><th colspan="4">Hadi ipar</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_28"><td><img src="img/gyarikonok/urhajogyar_index.jpg" /></td><td>Űrhajógyár (alap)</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_38"><td><img src="img/gyarikonok/urhajogyar_index.jpg" /></td><td>Űrhajógyár (fejlett)</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr><td></td><td><img src="img/hajoikonok/cirkalo_index.gif" /> Cirkáló</td><td class="gyar_aktiv">1</td><td class="gyar_inaktiv">1</td></tr>
+								<tr><th colspan="4">Speckók</th></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_31"><td><img src="img/gyarikonok/kutatoint_index.jpg" /></td><td>Kutatóintézet</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_32"><td><img src="img/gyarikonok/hirszerzokozpont_index.jpg" /></td><td>Hírszerző központ</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_33"><td><img src="img/gyarikonok/urkikoto_index.jpg" /></td><td>Űrkikötő</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+								<tr class="bolygo_gyar_tabla_sor tooltipped" id="bolygo_gyar_34"><td><img src="img/gyarikonok/teleport_index.jpg" /></td><td>Teleport</td><td class="gyar_aktiv"></td><td class="gyar_inaktiv"></td></tr>
+							</table>
+							<h1>Épülőfélben lévő gyárak</h1>
+							<h1>Dózerfélben lévő gyárak</h1>
+							<h1>Építési lista</h1>
+						</div>
+						<div style="float:right; width: 450px">
+							<h1>Speciális erőforrások</h1>
+							<table id="bolygo_specialis_eroforrasok_tabla">
+								<tr class="headerrow">
+									<th></th>
+									<th>név</th>
+									<th>készlet</th>
+									<th>delta/igény</th>
+									<th>jövő/szabad</th>
+								</tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_lakohely"><td><img src="img/eroforrasikonok/help32_index.jpg" /></td><td class="eroforras_nev">Lakóhely</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_nepesseg"><td><img src="img/eroforrasikonok/help32_index.jpg" /></td><td class="eroforras_nev">Népesség</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_munkaero"><td><img src="img/eroforrasikonok/help32_index.jpg" /></td><td class="eroforras_nev">Munkaerő</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_kepzett_munkaero"><td><img src="img/eroforrasikonok/help32_index.jpg" /></td><td class="eroforras_nev">Képzett munkaerő</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+							</table>
+							<p><br /></p>
+							<h1>Erőforrások</h1>
+							<table id="bolygo_eroforrasok_tabla">
+								<tr class="headerrow">
+									<th></th>
+									<th>név</th>
+									<th>készlet</th>
+									<th>term/fogy/száll</th>
+									<th>nettó</th>
+								</tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_56"><td><img src="img/eroforrasikonok/kaja_index.jpg" /></td><td class="eroforras_nev">Élelmiszer</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_59"><td><img src="img/eroforrasikonok/energia_index.jpg" /></td><td class="eroforras_nev">Energia</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_64"><td><img src="img/eroforrasikonok/fa_index.jpg" /></td><td class="eroforras_nev">Fa</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_65"><td><img src="img/eroforrasikonok/ko_index.jpg" /></td><td class="eroforras_nev">Kő</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_66"><td><img src="img/eroforrasikonok/homok_index.jpg" /></td><td class="eroforras_nev">Homok</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_67"><td><img src="img/eroforrasikonok/titan_index.jpg" /></td><td class="eroforras_nev">Titán</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_68"><td><img src="img/eroforrasikonok/uran_index.jpg" /></td><td class="eroforras_nev">Dúsított urán</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_69"><td><img src="img/eroforrasikonok/szen_index.jpg" /></td><td class="eroforras_nev">Szén</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_70"><td><img src="img/eroforrasikonok/olaj_index.jpg" /></td><td class="eroforras_nev">Olaj</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_71"><td><img src="img/eroforrasikonok/muanyag_index.jpg" /></td><td class="eroforras_nev">Műanyag</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_72"><td><img src="img/eroforrasikonok/uveg_index.jpg" /></td><td class="eroforras_nev">Üveg</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_73"><td><img src="img/eroforrasikonok/felvezeto_index.jpg" /></td><td class="eroforras_nev">Félvezető</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_74"><td><img src="img/eroforrasikonok/alkohol_index.jpg" /></td><td class="eroforras_nev">Alkohol</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+							</table>
+							<p><br /></p>
+							<h1>Nyers erőforrások</h1>
+							<table id="bolygo_nyers_eroforrasok_tabla">
+								<tr class="headerrow">
+									<th></th>
+									<th>név</th>
+									<th>készlet</th>
+									<th>felt/fogy</th>
+									<th>nettó</th>
+								</tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_60"><td><img src="img/eroforrasikonok/nyers_ko_index.jpg" /></td><td class="eroforras_nev">Nyers kő</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_61"><td><img src="img/eroforrasikonok/nyers_homok_index.jpg" /></td><td class="eroforras_nev">Nyers homok</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_62"><td><img src="img/eroforrasikonok/titanerc_index.jpg" /></td><td class="eroforras_nev">Titánérc</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+								<tr class="bolygo_eroforras_tabla_sor tooltipped" id="bolygo_eroforras_63"><td><img src="img/eroforrasikonok/uranerc_index.jpg" /></td><td class="eroforras_nev">Uránérc</td><td class="eroforras_keszlet"></td><td class="eroforras_delta"></td><td class="eroforras_netto"></td></tr>
+							</table>
+							<p><br /></p>
+							<h1>Beépítettség</h1>
+							<table class="datalist">
+								<tr><th>Beépített</th><td id="bolygo_adat_beepitett"></td></tr>
+								<tr><th>Effektív</th><td id="bolygo_adat_effektiv_beepitett"></td></tr>
+								<tr><th>Szabad</th><td id="bolygo_adat_szabad"></td></tr>
+								<tr><th>Épületek lábnyoma</th><td id="bolygo_adat_labnyom"></td><td></td></tr>
+							</table>
+							<button>Fejleszt</button>
+						</div>
+					</div>
+					<div id="bolygo_profil_kereskedelem" class="tab_content">
+						<p>Vagyonod:</p>
+						<p>Teleportjaid:</p>
+						<p>Napi vételi limit resetelése:</p>
+						<ul class="tab_list" id="tabs_for_bolygo_profil_kereskedelem_tabok">
+							<li id="tab_for_bolygo_profil_kereskedelem_r01" class="active_tab">R01</li>
+							<li id="tab_for_bolygo_profil_kereskedelem_r02">R02</li>
+							<li id="tab_for_bolygo_profil_kereskedelem_r03">R03</li>
+							<li id="tab_for_bolygo_profil_kereskedelem_r04">R04</li>
+							<li id="tab_for_bolygo_profil_kereskedelem_r05">R05</li>
+							<li id="tab_for_bolygo_profil_kereskedelem_szabad">Szabadpiac</li>
+						</ul>
+						<div id="bolygo_profil_kereskedelem_tabok">
+							<div id="bolygo_profil_kereskedelem_r01" class="tab_content active_tab_content">
+								<h2>R01-es régió tőzsdéje</h2>
+							</div>
+							<div id="bolygo_profil_kereskedelem_r02" class="tab_content">
+								<h2>R02-es régió tőzsdéje</h2>
+							</div>
+							<div id="bolygo_profil_kereskedelem_r03" class="tab_content">
+								<h2>R03-as régió tőzsdéje</h2>
+							</div>
+							<div id="bolygo_profil_kereskedelem_r04" class="tab_content">
+								<h2>R04-es régió tőzsdéje</h2>
+							</div>
+							<div id="bolygo_profil_kereskedelem_r05" class="tab_content">
+								<h2>R05-ös régió tőzsdéje</h2>
+							</div>
+							<div id="bolygo_profil_kereskedelem_szabad" class="tab_content">
+								<h2>Szabadpiac</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="context_menu"></div>
+		<div id="loading"><div id="loading_ajax"></div></div>
+		<div id="tooltip"></div>
+		<div id="tooltips">
+			<div id="tooltip_for_bolygo_eroforras_nepesseg">
+				<p>Ahhoz, hogy fejlődj, állandóan növelned kell a bolygó népességét.</p>
+				<p>Fontos összefüggések:</p>
+				<ul class="normal_list">
+					<li>a munkaerő mindig a népesség fele</li>
+					<li>a népesség mindig az élelmiszer és a lakóhely közül a kisebbet közelíti</li>
+				<ul>
+				<p><a href="http://zandagort.hu/wiki/N%C3%A9pess%C3%A9g" target="_blank">További infók...</a></p>
+			</div>
+			<div id="tooltip_for_bolygo_gyar_1">
+				<p>B-bolygón 3-as tech szinten mindenképp érdemes építened!</p>
+				<ul class="normal_list">
+					<li>Input: 300 fő Munkaerő</li>
+					<li>Output: 9 500 MWh Energia</li>
+				<ul>
+				<p><a href="http://zandagort.hu/wiki/Naper%C5%91m%C5%B1" target="_blank">További infók...</a></p>
+			</div>
+			<div id="tooltip_for_bolygo_gyar_2">
+				<p>Sok KP kikutatni, de nagyon frankó erőmű!</p>
+				<ul class="normal_list">
+					<li>Input: 100 fő Képzett munkaerő</li>
+					<li>Output: 500 000 MWh Energia</li>
+				<ul>
+				<p><a href="http://zandagort.hu/wiki/SPS" target="_blank">További infók...</a></p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+* {margin: 0; padding: 0;}
+html {overflow: -moz-scrollbars-vertical;}
+body {
+	font-size: 10pt;
+	font-family: arial, helvetica, sans-serif;
+	background: black url(../img/hatter.jpg) repeat;
+	color: white;
+	text-align: center;
+}
+
+
+#kulso_resz_v2 {
+	width: 996px; margin: 0 auto;
+	background: black url(../img/kozepcsik.gif) repeat scroll 0 0;
+}
+#kulso_resz_v2 p {
+	padding: 5px;
+	text-align: center;
+	font-size: 12pt;
+}
+#menu_v2 {
+	margin: 0 auto;
+	padding: 0 0 20pt 40px;
+	width: 980px;
+	list-style-type: none;
+}
+#menu_v2 li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100px;
+}img {
+	border: none;
+}
+a {color:rgb(100,160,255)}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:hover {text-decoration: underline}
+table {
+	border-collapse: collapse;
+	text-align: center;
+	margin: 0 auto;
+}
+th {
+	font-size: 10pt;
+	padding: 4px;
+	text-align: center;
+}
+td {
+	font-size: 10pt;
+	padding: 3px;
+	text-align: left;
+}
+.pt {
+	background: rgb(80,80,80);
+}
+.kistds td {font-size: 8pt}

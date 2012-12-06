@@ -1,0 +1,759 @@
+* {margin: 0; padding: 0;}
+html {
+	height: 100%;
+	overflow: -moz-scrollbars-vertical;
+}
+body {
+	font-size: 10pt;
+	font-family: arial, helvetica, sans-serif;
+	background: rgb(240,240,240);
+	color: black;
+}
+#jatek_body {
+	height: 100%;
+}
+
+#recaptcha_area {
+	margin: 0 auto;
+}
+
+#kulso_resz_v2 {
+	width: 996px; margin: 0 auto;
+	background: rgb(240,240,240);
+}
+#kulso_resz_v2 p {
+	padding: 5px;
+	text-align: justify;
+	font-size: 12pt;
+}
+#kulso_resz_v2 p.regi {
+	padding: 5px;
+	text-align: center;
+	font-size: 10pt;
+}
+#kulso_resz_v2 p.reg_hiba {
+	padding: 5px;
+	text-align: center;
+	font-size: 10pt;
+	color: red;
+	font-weight: bold;
+}
+#menu_v2 {
+	margin: 0 auto;
+	padding: 0 0 20pt 40px;
+	width: 980px;
+	list-style-type: none;
+}
+#menu_v2 li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 100px;
+}
+
+#kulso_resz {
+	width: 800px; margin: 0 auto;
+}
+#kulso_resz p {
+	text-align: justify;
+	font-size: 12pt;
+	line-height: 130%;
+	margin-bottom: 10px;
+}
+
+#nagy_keret {
+	position: relative;
+	width: 1004px; min-height: 100%;
+	margin: 0 auto;
+}
+#fejlec {
+	width: 1004px; height: 0px;
+	background: rgb(240,240,240);
+}
+#lablec {
+	width: 1004px; height: 0px;
+	background: rgb(240,240,240);
+}
+#belso_keret {
+	position: relative;
+	width: 1004px; min-height: 100%;
+	margin: 0 auto;
+	background: rgb(240,240,240);
+}
+
+#tat_table {
+	z-index: 2000;
+}
+#fullscreen_terkep {
+	display: none;
+	position: absolute; top: 0; left: 0; z-index: 1000;
+	width: 1004px; height: 850px;
+	background: rgb(240,240,240);
+}
+#fullscreen_terkep_kontroll_div {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+}
+#fullscreen_terkep_div {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	cursor: crosshair;
+}
+#fullscreen_terkep p{
+	margin: 0;
+	padding: 5px;
+}
+
+#menu {
+	position: relative;
+	float: left;
+	width: 220px;
+}
+#cont {
+	position: relative;
+	float: right;
+	width: 780px;
+}
+
+#logo {
+	font-size: 30pt;
+	font-weight: bold;
+	height: 70px;
+	color: rgb(255,153,1);
+}
+#logo a {color: rgb(255,153,1)}
+.peding {
+	padding: 5px;
+}
+
+
+
+
+table {
+border: none;
+border-spacing: 0; border-collapse: collapse;
+text-align: center;
+}
+td {
+padding: 3px; border: none;
+text-align: left;
+font-size: 10pt;
+}
+td.szam {text-align: right}
+th {
+font-size: 10pt;
+padding: 0 3px;
+border-bottom: solid rgb(160,160,160) 1px;
+}
+
+
+
+table.racsos {
+border: solid rgb(40,40,40) 1px;
+border-spacing: 0; border-collapse: collapse;
+text-align: center;
+}
+table.racsos td {
+padding: 3px; border: solid rgb(40,40,40) 1px;
+text-align: center;
+color: black;
+}
+table.racsos th {
+padding: 3px; border: solid rgb(40,40,40) 1px;
+text-align: center; font-weight: bold;
+}
+
+.oko_piros {background:rgb(255,128,128)}
+.oko_zold {background:rgb(128,255,128)}
+.oko_sarga {background:rgb(255,255,128)}
+
+
+a {color:rgb(0,20,120)}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:hover {color:rgb(40,160,0)}
+img {border:none; vertical-align: -3px;}
+h1 {font-size: 18pt; margin: 10px 0 5px 0}
+h2 {font-size: 15pt; margin: 10px 0 5px 0}
+h3 {font-size: 12pt}
+
+input.szoveg {
+	font-size: 15pt;
+	border: solid rgb(40,40,40) 1px;
+	background: white;
+	color: rgb(40,40,40);
+}
+input.gomb {
+	font-size: 12pt;
+	border: solid rgb(40,40,40) 1px;
+	background: white;
+	color: rgb(40,40,40);
+}
+form p {
+	margin: 5px 0;
+}
+a.nagylink {
+	font-size: 15pt;
+}
+
+/***** LEVELEZO ******/
+
+#levelek_div {
+/*	height: 260px;*/
+}
+
+
+.flotta_lista_elem {
+	padding-left: 20px;
+}
+
+
+
+.olvasatlan_level {
+	font-weight: bold; color: rgb(100,160,255);
+}
+.aktiv_level {
+	background: rgb(180,130,100);
+}
+.paros_level_soraktiv_level {
+	background: rgb(200,150,100);
+}
+.paros_level_sor {
+	background: rgb(100,100,100);
+}
+.level_sor_hoveraktiv_level {
+	background: rgb(220,180,120);
+}
+.level_sor_hover {
+	background: rgb(140,140,140);
+}
+
+.cimzett_sor {
+	width: 200px;
+}
+.targy_sor {
+	width: 400px;
+}
+
+.uzenet_box {
+	width: 500px;
+	height: 200px;
+}
+
+/***********/
+#oldal_bolygo {display:none}
+#oldal_flotta {display:none}
+#oldal_user {display:none}
+#oldal_szovetseg {display:none}
+#oldal_terkep {display:none}
+#oldal_birod {display:none}
+#oldal_felder {display:none}
+#oldal_komm {display:none}
+#oldal_komm2 {display:none}
+#oldal_komm3 {display:none}
+#oldal_help {display:none}
+#oldal_profil {display:none}
+#oldal_cset {display:none}
+
+#bolygo_aloldal_oko {display:none; position: relative}
+#bolygo_aloldal_gazd {display:none; position: relative}
+#bolygo_aloldal_haboru {display:none; position: relative}
+#bolygo_aloldal_tozsde {display:none; position: relative}
+#bolygo_aloldal_egyeb {display:none; position: relative}
+.aktiv_aloldal {color: rgb(200,160,0)}
+
+#szovetseg_aloldal_chat {display:none; position: relative}
+#szovetseg_aloldal_forum {display:none; position: relative}
+#szovetseg_aloldal_diplo {display:none; position: relative}
+#szovetseg_aloldal_kozos {display:none; position: relative}
+#szovetseg_aloldal_tagok {display:none; position: relative}
+#szovetseg_aloldal_tisztek {display:none; position: relative}
+
+#attekintes_aloldal_birodalom {position: relative}
+#attekintes_aloldal_bolygok {display:none; position: relative}
+#attekintes_aloldal_flottak {display:none; position: relative}
+#attekintes_aloldal_kozos_flottak {display:none; position: relative}
+#attekintes_aloldal_hajok {display:none; position: relative}
+#attekintes_aloldal_egyeb {display:none; position: relative}
+
+.csik {
+	display:-moz-inline-stack;
+	display: inline-block;
+	height: 16px;
+	text-align: center;
+}
+
+#bolygo_lista_kont {
+	position: relative;
+	height: 227px; margin-bottom: 8px;
+}
+#bolygo_lista {
+	position: absolute; top: 70px; left: 30px;
+	width: 160px;
+	height: 140px;
+	overflow: auto;
+}
+#bolygo_lista a {
+	padding-left: 20px;
+}
+.menu_bolygo_osztaly_1 {background: url(img/ikonok/bolygo_a.gif) no-repeat left;}
+.menu_bolygo_osztaly_2 {background: url(img/ikonok/bolygo_b.gif) no-repeat left;}
+.menu_bolygo_osztaly_3 {background: url(img/ikonok/bolygo_c.gif) no-repeat left;}
+.menu_bolygo_osztaly_4 {background: url(img/ikonok/bolygo_d.gif) no-repeat left;}
+.menu_bolygo_osztaly_5 {background: url(img/ikonok/bolygo_e.gif) no-repeat left;}
+.aktiv_bolygo_link {font-weight:bold}
+.aktiv_menu {background: url(img/sarga.gif) no-repeat 3px 5px}
+
+
+
+#flotta_lista_kont {
+	position: relative;
+	height: 229px; margin-bottom: 4px;
+}
+#flotta_lista {
+	position: absolute; top: 70px; left: 30px;
+	width: 160px;
+	height: 140px;
+	overflow: auto;
+}
+#flotta_lista a {
+	padding-left: 20px;
+}
+.menu_flotta_npc {background: url(img/ikonok/flotta_ikon_16x16_npc.gif) no-repeat left;}
+.menu_flotta_sajat {background: url(img/ikonok/flotta_ikon_16x16_sajat.gif) no-repeat left;}
+.menu_flotta_szovi {background: url(img/ikonok/flotta_ikon_16x16_szovi.gif) no-repeat left;}
+.menu_flotta_semli {background: url(img/ikonok/flotta_ikon_16x16_semli.gif) no-repeat left;}
+.menu_flotta_hadban {background: url(img/ikonok/flotta_ikon_16x16_hadban.gif) no-repeat left;}
+.menu_flotta_beke {background: url(img/ikonok/flotta_ikon_16x16_beke.gif) no-repeat left;}
+.menu_flotta_mnt {background: url(img/ikonok/flotta_ikon_16x16_mnt.gif) no-repeat left;}
+.aktiv_flotta_link {font-weight:bold}
+
+
+#menu_egyeb {
+	position: relative;
+	height: 439px;
+}
+
+
+#oldal_bolygo_hatter {
+	background: rgb(240,240,240);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: -9999px 9999px;
+}
+#oldal_bolygo {
+	position: relative;
+}
+
+.link_fejleszt {padding-left: 18px; background: url(img/ikonok/wand.gif) no-repeat left}
+.link_aktival {padding-left: 18px; background: url(img/ikonok/add.gif) no-repeat left}
+.link_inaktival {padding-left: 18px; background: url(img/ikonok/delete.gif) no-repeat left}
+.link_rombol {padding-left: 18px; background: url(img/ikonok/cross.gif) no-repeat left}
+.link_epit {padding-left: 18px; background: url(img/ikonok/epit.gif) no-repeat left}
+.link_epit_inaktiv {padding-left: 18px; background: url(img/ikonok/epit-ff.gif) no-repeat left}
+
+.bolygo_terkep_kornyek {
+	border: solid 1px rgb(30,30,30);
+	vertical-align: middle;
+}
+.akcio_menu li {
+	padding: 5px 0;
+}
+.ujepulet_menu li {
+	height: 34px;
+}
+
+
+/***************** TERKEP *****************/
+#terkep_kulso_keret {
+	position: relative; top: 20px;
+	width: 749px;
+	margin: 0 auto;
+	background: rgb(42,43,45) url(img/terkep_kozep.gif) repeat-y;
+}
+#terkep_fejlec {
+	width: 749px; height: 28px;
+	background: rgb(42,43,45) url(img/terkep_fejlec.gif);
+}
+#terkep_lablec {
+	width: 749px; height: 28px;
+	background: rgb(42,43,45) url(img/terkep_lablec.gif);
+}
+
+#terkep_alatt {
+	position: relative; top: 30px;
+	text-align: center;
+}
+
+#terkep_keret {
+	position: relative; left: 16px; top: 0px;
+	width: 716px; height: 600px;
+	overflow: hidden;
+}
+#terkep_mozgo_hatter {
+	position: relative;
+	width: 2048px; height: 2048px;
+}
+#terkep_attekinto {
+	position: absolute; left: 0; top: 0; z-index: 500;
+	width: 716px; height: 600px;
+	display: none;
+	cursor: crosshair;
+}
+#terkep_klikkento {
+	position: absolute; left: 0; top: 0; z-index: 10;
+	width: 716px; height: 600px;
+	background-image: url(img/terkep_racs_500.gif);
+	cursor: -moz-grab;
+}
+#terkep_x_koord1,#terkep_x_koord2 {
+	position: absolute; left: 370px; bottom: 1px; z-index: 50;
+	color: rgb(100,255,100);
+}
+#terkep_y_koord1,#terkep_y_koord2 {
+	position: absolute; left: 3px; top: 275px; z-index: 50;
+	color: rgb(100,255,100);
+}
+
+#terkep_context {
+	position: absolute; left: 0; top: 0; z-index: 100; display: none;
+	border: solid 1px rgb(40,40,40);
+	background: white;
+}
+#terkep_hover {
+	position: absolute; left: 0; top: 0; z-index: 90; display: none;
+	border: solid 1px rgb(40,40,40);
+	background: white;
+}
+
+a.agresszio {color:rgb(255,50,10)}
+a.agresszio:hover {color:rgb(255,200,0)}
+
+.terkep_jelolo_div {
+	position: absolute; z-index: 10;
+}
+.terkep_bolygo_div {
+	position: absolute; z-index: 20;
+	text-align: left;
+	cursor: pointer;
+	white-space: nowrap;
+	font-size: 9pt;
+}
+.terkep_bolygo_div a {
+	text-decoration: none;
+	color: white;
+	font-size: 9pt;
+}
+.apro_szoveg_2 {
+	font-size: 8pt !important;
+}
+.apro_szoveg_4 {
+	font-size: 7pt !important;
+}
+.apro_szoveg_8 {
+	font-size: 7pt !important;
+}
+
+.terkep_flotta_div {
+	position: absolute; z-index: 30;
+	text-align: left;
+	cursor: pointer;
+	white-space: nowrap;
+	font-size: 7pt;
+}
+.terkep_flotta_div a {
+	text-decoration: none;
+	color: white;
+	font-size: 7pt;
+}
+
+.terkep_hexa_div {
+	position: absolute; z-index: 5;
+}
+
+
+li {
+	list-style: none;
+}
+ul.normal_lista {
+	padding-left: 40px;
+}
+.csj_csata_lista {padding-left: 20px;}
+.csj_csata_lista li {margin-top: 20px;}
+.csj_flotta_lista {padding-left: 40px;}
+.csj_flotta_lista li {margin-top: 5px;}
+.csj_hajo_lista {padding-left: 20px;}
+
+.kulso_link {padding-left: 12px; background: url(img/ikonok/external.gif) no-repeat left;}
+#help_toc_toc {
+	position: relative;
+	width: 770px; height: 720px;
+	overflow: auto;
+}
+#help_toc_1 {
+	position: absolute; top: 0; left: 5px;
+	width: 250px;
+}
+#help_toc_2 {
+	position: absolute; top: 0; left: 260px;
+	width: 250px;
+}
+#help_toc_3 {
+	position: absolute; top: 0; right: 5px;
+	width: 250px;
+}
+
+#help_cont {
+	position: absolute; top: 0; left: 0px;
+	width: 470px;
+	height: 720px;
+	overflow: auto;
+	text-align: center;
+}
+#help_toc {
+	position: absolute; top: 0; right: 10px;
+	width: 295px;
+	height: 720px;
+	overflow: auto;
+}
+#help_cont p {
+	width: 450px;
+	margin: 0 auto;
+	text-align: justify;
+}
+#help_cont h2 {
+	width: 450px;
+	margin: 10px auto 5px auto;
+	text-align: left;
+}
+#help_cont ul {
+	width: 450px;
+	margin: 0 auto;
+	text-align: left;
+}
+#help_kep {
+	width: 320px;
+	height: 320px;
+}
+table.helptabla {
+border: solid white 1px;
+border-spacing: 0; border-collapse: collapse;
+text-align: center;
+}
+table.helptabla td {
+padding: 3px; border: solid white 1px;
+text-align: center;
+}
+table.helptabla th {
+padding: 3px; border: solid white 1px;
+text-align: center; font-weight: bold;
+}
+table.helpbelso,table.helpbelso td {
+width: 100%;
+border: none;
+border-spacing: 0; border-collapse: collapse;
+}
+
+
+
+
+.cset_szoveg {
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+.cset_user_nev {
+	font-weight: bold;
+}
+#szov_cset_felsoresz {
+	position: relative; width: 750px; height: 320px;
+}
+#szov_cset_csat {
+	position: absolute; top: 0; left: 0;
+	width: 600px; padding: 10px; height: 300px; overflow: auto;
+}
+#szov_cset_online {
+	position: absolute; top: 0; right: 0;
+	width: 100px; padding: 10px; height: 300px; overflow: auto;
+	font-size: 8pt;
+}
+#cset_felsoresz {
+	position: relative; width: 750px; height: 620px;
+}
+#cset_csat {
+	position: absolute; top: 0; left: 0;
+	width: 700px; padding: 10px; height: 600px; overflow: auto;
+}
+
+
+
+.ajanlat_veteli {color: rgb(0,100,0)}
+.ajanlat_eladasi {color: rgb(200,0,0)}
+.keszlet_kifogy {color:rgb(170,40,40)}
+.eroforras_transzfer_be {color:rgb(0,40,160)}
+.eroforras_transzfer_ki {color:rgb(0,40,160)}
+.eroforras_netto_poz {color:rgb(0,100,0)}
+.eroforras_netto_neg {color:rgb(200,0,0)}
+.gyar_context_menu {background: rgb(200,200,200)}
+.gyar_mennyi_epitheto {color:rgb(0,100,0)}
+.gyar_hany_kor_mulva {color:rgb(200,80,0)}
+.gyar_soha_nem_eleg {color:rgb(200,0,0)}
+.uj_epuletek {background: rgb(200,200,200)}
+.nem_kattinthato_bolygo {color: rgb(80,80,80)}
+.tozsde_paros_sor {background: rgb(200,200,200)}
+
+
+.tozsde_mennyiseg {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 90px;
+}
+.tozsde_arfolyam {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 75px;
+}
+select {
+	font-size: 8pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+textarea.fekete_area {
+	font-size: 10pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+
+.ugynokszam {
+	font-size: 10pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 40px
+}
+.paros_riport_sor {
+	background: rgb(170,170,170);
+}
+.halvany {
+	color: rgb(192,192,192);
+}
+
+
+.post_it_jegyzet {
+	padding: 0; margin: 0; border: none;
+	background: white;
+	color: rgb(40,40,40);
+	width: 500px;
+}
+.post_it_szerk {
+	padding: 0; margin: 0; border: none;
+	background: white;
+	color: rgb(40,40,40);
+	width: 500px;
+	height: 100px;
+}
+
+
+.hajoszam {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 50px
+}
+.ujflottanev {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 130px
+}
+
+.bolygonev {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 200px
+}
+
+.efszam {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 100px
+}
+.tisztnev {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 90px
+}
+
+.okoszim_fajszam {width: 100px}
+.okoszim_gyarszam {width: 30px}
+
+.szovegmezo {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+.szovegmezo10 {
+	font-size: 10pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+.szovegdoboz {
+	font-size: 10pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+select.tisztseg {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+.usernev {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 150px
+}
+.terkep_usernev {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+	width: 150px
+}
+
+select.diplo_statusz {
+	font-size: 12pt;
+	background: white;
+	color: rgb(40,40,40);
+	border: solid rgb(40,40,40) 1px;
+}
+
+
+img.tut_img {
+	border: solid rgb(40,40,40) 1px;
+	vertical-align: 0px;
+	margin: 0 auto;
+}

@@ -1,0 +1,483 @@
+html {
+	width: 100%; height: 100%; overflow: hidden;
+}
+body {
+	width: 100%; height: 100%; overflow: hidden;
+	font-family: helvetica, arial, "sans-serif";
+	font-size: 8pt;
+	background: black;
+	color: rgb(255,240,220);
+}
+a {
+	color: rgb(255,160,40);
+	text-decoration: none;
+}
+h1 {
+	font-weight: bold;
+}
+.unselectable {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.grabbing {
+	cursor: move !important;
+	cursor: -moz-grabbing !important;
+}
+.clear {
+	clear: both;
+}
+
+table {
+	border-collapse: collapse;
+}
+th {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 0px 2px 5px;
+}
+th:first-child {
+	padding: 5px 0px 2px 0px;
+}
+td {
+	text-align: left;
+	padding: 5px 0px 0px 5px;
+}
+td:first-child {
+	padding: 5px 0px 0px 0px;
+}
+
+tr.headerrow {
+	text-align: center;
+	border-bottom: solid 1px rgb(255,240,220);
+}
+tr.headerrow th {
+	text-align: center;
+}
+
+table.datalist th {
+	text-align: left;
+	padding: 0px 10px 5px 0px;
+}
+table.datalist td {
+	padding: 0px 0px 5px 0px;
+}
+
+ul.normal_list li {
+	list-style-type: disc;
+	margin-left: 20px;
+}
+
+
+
+
+#terkep {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%; height: 100%;
+	background: url(../img/map_background.jpg) repeat 0px 0px;
+}
+#terkep_eger_reteg {
+	width: 100%; height: 100%;
+	cursor: move;
+	cursor: -moz-grab;
+}
+#terkep_hexak li {
+	position: absolute;
+	width: 286px; height: 248px;
+	background-repeat: no-repeat;
+	overflow: visible;
+}
+#terkep_hexak li div {
+	position: absolute;
+	top: -2px; left: -2px;
+	width: 290px; height: 252px;
+	background-repeat: no-repeat;
+	overflow: visible;
+}
+#terkep_bolygok li {
+	position: absolute;
+}
+.bolygo_klikk_terulet {
+	cursor: pointer;
+}
+#terkep_flottak li {
+	position: absolute;
+	cursor: pointer;
+}
+
+#miniterkep {
+	position: absolute;
+	bottom: 0px; height: 176px;
+	width: 100%;
+}
+#miniterkep_koordi {
+	position: absolute;
+	top: 0px; height: 16px;
+	left: 5px; right: 5px;
+	padding-left: 2px;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 8pt;
+}
+#miniterkep_belso {
+	position: absolute;
+	top: 21px; bottom: 5px;
+	left: 5px; right: 5px;
+	background: black url(../img/s8_map_150_40k.png) center center;
+	overflow: hidden;
+}
+#miniterkep_jelolo {
+	position: absolute;
+	border: solid 1px rgb(255,0,0);
+	border: solid 1px rgba(255,0,0,0.5);
+	background: rgba(255,0,0,0.2);
+}
+#miniterkep_jelolo_x {
+	position: absolute;
+	background: rgb(255,0,0);
+	background: rgba(255,0,0,0.5);
+	width: 1px; height: 100%;
+}
+#miniterkep_jelolo_y {
+	position: absolute;
+	background: rgb(255,0,0);
+	background: rgba(255,0,0,0.5);
+	width: 100%; height: 1px;
+}
+
+
+
+
+.ablak {
+	position: absolute;
+	z-index: 20;
+	border-color: rgb(27,62,68);
+	border-style: solid;
+	border-width: 1px;
+	background: transparent url(../img/zanda_background.png) repeat;
+	overflow: hidden;
+}
+.ablak_fejlec {
+	background: rgb(27,62,68);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(32,75,81) rgb(14,31,34) rgb(14,31,34) rgb(32,75,81);
+	height: 20px;
+	padding: 1px 4px;
+	font-weight: bold;
+	font-size: 11pt;
+}
+.ablak_fejlec .close_icon {
+	position: absolute;
+	top: 2px; right: 2px;
+	width: 16px; height: 16px;
+	background: transparent url(../img/zanda_close_icon.png);
+	cursor: pointer;
+}
+.ablak_fejlec_menu {
+	float: right;
+	height: 16px;
+}
+.ablak_tartalom {
+	position: absolute;
+	top: 30px; bottom: 0px;
+	left: 0px; right: 0px;
+	padding: 5px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+#bolygo_profil {
+	left: -800px; width: 800px;
+	top: 40px; bottom: 0px;
+	display: none;
+}
+#bolygo_profil_felso_resz {
+	height: 110px;
+}
+#bolygo_alap_adatok {
+	position: absolute;
+	left: 5px; width: 400px;
+	top: 5px;
+}
+#bolygo_kep {
+	position: absolute;
+	left: 440px; width: 100px;
+	top: 10px; height: 100px;
+	color: rgb(255,240,220);
+	font-weight: bold;
+}
+#bolygo_gala_kis {
+	position: absolute;
+	left: 550px; width: 100px;
+	top: 10px; height: 100px;
+	color: rgb(255,240,220);
+	font-weight: bold;
+}
+#bolygo_gala_nagy {
+	position: absolute;
+	left: 660px; width: 100px;
+	top: 10px; height: 100px;
+	color: rgb(255,240,220);
+	font-weight: bold;
+}
+.gyar_nev {
+	font-weight: bold;
+	width: 130px;
+}
+.gyar_aktiv {
+	text-align: right;
+	width: 75px;
+}
+.gyar_inaktiv {
+	text-align: right;
+	width: 75px;
+}
+.eroforras_nev {
+	font-weight: bold;
+	width: 80px;
+}
+.eroforras_keszlet {
+	text-align: right;
+	width: 100px;
+}
+.eroforras_delta {
+	text-align: right;
+	width: 100px;
+}
+.eroforras_netto {
+	text-align: right;
+	width: 100px;
+}
+
+
+
+.menu {
+	border-color: rgb(27,62,68);
+	background: transparent url(../img/zanda_background.png) repeat;
+	z-index: 10;
+}
+.menu_section {
+	background: transparent url(../img/zanda_50_black_1px.png) repeat;
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(14,31,34) rgb(32,75,81) rgb(32,75,81) rgb(14,31,34);
+}
+.menu button {
+	margin-top: 5px;
+	height: 29px;
+	margin-left: 5px; margin-right: 0px;
+}
+#felso_menu {
+	position: absolute;
+	left: 150px; right: 0px;
+	top: 0px; height: 40px;
+}
+#zanda_logo {
+	position: absolute;
+	top: 0px; right: 0px;
+	width: 160px; height: 40px;
+	background: transparent url(../img/zanda_logo_160x40.png);
+}
+#bal_menu {
+	position: absolute;
+	left: 0px; width: 150px;
+	top: 0px; bottom: 0px;
+}
+#esemenyek {
+	position: absolute;
+	top: 5px; height: 150px;
+	left: 5px; right: 5px;
+	padding: 5px;
+}
+#bolygo_lista {
+	position: absolute;
+	top: 172px; bottom: 170px;
+	left: 5px; right: 5px;
+	overflow: hidden;
+	padding: 5px 15px 5px 5px;
+}
+#bolygo_lista ul li {
+	padding-left: 18px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+#minichat {
+	position: absolute;
+	bottom: 5px; height: 150px;
+	left: 5px; right: 5px;
+	padding: 5px;
+}
+#jobb_menu {
+	position: absolute;
+	right: 0px; width: 160px;
+	top: 40px; bottom: 0px;
+}
+#flotta_lista {
+	position: absolute;
+	left: 5px; right: 5px;
+	top: 0px; bottom: 391px;
+	overflow: hidden;
+	padding: 5px 15px 5px 5px;
+}
+#aktiv_flotta {
+	position: absolute;
+	bottom: 306px; height: 80px;
+	left: 5px; right: 5px;
+}
+#kivalasztott_flotta {
+	position: absolute;
+	bottom: 181px; height: 120px;
+	left: 5px; right: 5px;
+}
+
+
+#context_menu {
+	position: absolute;
+	display: none;
+	z-index: 999;
+}
+.context_menu_item {
+	position: absolute;
+	background: transparent url(../img/context_menu_hexa.png);
+	width: 64px; height: 48px;
+	padding-top: 16px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 20pt;
+	font-weight: bold;
+}
+#context_menu_item_a {
+	left: 0px; top: 0px;
+}
+#context_menu_item_b {
+	left: 0px; top: -70px;
+}
+#context_menu_item_c {
+	left: -60px; top: -34px;
+}
+#context_menu_item_d {
+	left: 60px; top: -34px;
+}
+#context_menu_item_e {
+	left: -60px; top: 34px;
+}
+#context_menu_item_f {
+	left: 60px; top: 34px;
+}
+#context_menu_item_g {
+	left: 0px; top: 70px;
+}
+
+#tooltip {
+	position: absolute;
+	display: none;
+	z-index: 10000;
+	background: rgb(27,62,68);
+	border: solid 1px rgb(32,75,81);
+	-moz-box-shadow: 4px 4px 5px rgb(0,0,0);
+	-webkit-box-shadow: 4px 4px 5px rgb(0,0,0);
+	box-shadow: 4px 4px 5px rgb(0,0,0);
+	padding: 10px;
+}
+#tooltips {
+	display: none;
+}
+
+#loading {
+	position: absolute;
+	left: 50%; top: 50%;
+	margin-left: -16px; margin-top: -16px;
+	width: 32px; height: 32px;
+	background: transparent url(../img/zanda_ze_32.png);
+	display: none;
+	z-index: 20000;
+}
+#loading_ajax {
+	position: absolute;
+	left: 8px; top: 8px;
+	width: 16px; height: 16px;
+	background: transparent url(../img/ajax-loader.gif);
+}
+
+
+.tab_list {
+	/*width: 100%;*/
+	/*overflow: hidden;*/
+	height: 30px;
+	border-bottom: solid 1px rgb(32,75,81);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.tab_list li {
+	float: left;
+	cursor: pointer;
+	color: rgb(255,160,40);
+	border-style: solid solid none solid;
+	border-width: 1px 1px 0px 1px;
+	border-color: rgb(32,75,81);
+	padding: 5px;
+	height: 19px;
+	font-size: 10pt;
+	font-weight: bold;
+	background: rgb(27,62,68);
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.tab_content {
+	display: none;
+}
+.active_tab_content {
+	display: block !important;
+}
+.active_tab {
+	color: rgb(255,200,100) !important;
+	padding-bottom: 6px !important;
+}
+
+
+
+
+
+
+
+
+
+button, .button {
+	width: auto;
+	margin: 0px;
+	padding: 3px 5px;
+	font-weight: bold;
+	cursor: pointer;
+
+	color: rgb(255,240,220);
+	border: 1px solid rgb(32,75,81);
+	border-radius: 3px;
+	box-shadow: 0 1px 0 0 rgba(255,255,255,0.2) inset;
+	background-clip: padding-box;
+
+	background: rgb(26,60,66);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33767f, endColorstr=#12282d);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(51,118,127)), to(rgb(18,40,45)));
+	background: -moz-linear-gradient(top, rgb(51,118,127), rgb(18,40,45));
+	background: -o-linear-gradient(top, rgb(51,118,127), rgb(18,40,45));
+	background: linear-gradient(to bottom, rgb(51,118,127), rgb(18,40,45));
+}
+button:hover, .button:hover, button:focus, .button:focus {
+	background: rgb(33,76,82);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#3a868f, endColorstr=#19383d);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(58,134,143)), to(rgb(25,56,61)));
+	background: -moz-linear-gradient(top, rgb(58,134,143), rgb(25,56,61));
+	background: -o-linear-gradient(top, rgb(58,134,143), rgb(25,56,61));
+	background: linear-gradient(to bottom, rgb(58,134,143), rgb(25,56,61));
+	text-decoration: none;
+}
+button:active, .button:active {
+	background: rgb(39,91,99);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#19383d, endColorstr=#2c666f);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgb(25,56,61)), to(rgb(44,102,111)));
+	background: -moz-linear-gradient(top, rgb(25,56,61), rgb(44,102,111));
+	background: -o-linear-gradient(top, rgb(25,56,61), rgb(44,102,111));
+	background: linear-gradient(to bottom, rgb(25,56,61), rgb(44,102,111));
+}
